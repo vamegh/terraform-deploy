@@ -1,0 +1,58 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Effect": "Allow",
+    "Action": [
+      "acm:ListCertificates",
+      "acm:ListTagsForCertificate",
+      "acm:DescribeCertificate",
+      "acm:GetCertificate",
+      "acm:ExportCertificate",
+      "iam:List*",
+      "iam:Get*",
+      "iam:ListRoles",
+      "iam:PassRole",
+      "iam:PutRolePolicy",
+      "iam:AttachRolePolicy",
+      "iam:AddRoleToInstanceProfile",
+      "iam:AttachUserPolicy",
+      "iam:GetPolicy",
+      "iam:GetPolicyVersion",
+      "iam:GetRole",
+      "iam:GetRolePolicy",
+      "s3:ListAllBuckets",
+      "s3:GetBucketLocation",
+      "ec2:DescribeTags",
+      "sts:*",
+      "sts:GetFederationToken",
+      "sts:GetCallerIdentity",
+      "sts:AssumeRole"
+
+    ],
+    "Resource": [
+      "*"
+    ]
+  },
+    {
+      "Effect": "Allow",
+      "Action": "iam:CreateServiceLinkedRole",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "iam:AWSServiceName": [
+            "sts.amazonaws.com",
+            "sts.eu-west-1a.amazonaws.com",
+            "iam.amazonaws.com",
+            "ec2.amazonaws.com",
+            "autoscaling.amazonaws.com",
+            "ec2scheduled.amazonaws.com",
+            "elasticloadbalancing.amazonaws.com",
+            "spot.amazonaws.com",
+            "spotfleet.amazonaws.com",
+            "transitgateway.amazonaws.com"
+          ]
+        }
+      }
+    }
+  ]
+}
