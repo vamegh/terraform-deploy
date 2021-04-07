@@ -33,7 +33,14 @@ This should build the necessary terraform backends required (namely the dynamodb
 
 
 ## Building Infrastructure
-The various components need to be run in order, after the bootstrapping step above is complete the iam components should be added, next the mgmt components so that the various vpc's, subnets and security groups can be built finally the services should be built.
+The various components need to be run in order, after the bootstrapping step above is complete the iam components should be added first.
+
+The mgmt components should be built next so that the various vpc's, subnets and security groups are available.
+
+next the packer images should be built instructions here: 
+[packer-image-build/README.md](https://github.com/vamegh/packer-image-build/blob/master/README.md) 
+
+finally the services should be built.
 
 Please note you will need to create main.auto.tfvars (or something to this effect) with all of the various variable values you need in each sub-directory
 you will also need to create a backend.tfvars which contains backed configuration information for all of the deployments after bootstrapping. 
@@ -63,4 +70,12 @@ region = "eu-west-1"
 ```
 
 In the main.auto.tfvars, once this has been configured, terraform can be planned and applied and the infrastructure components will be built
+
+
+## Building AMI's 
+
+As mentioned in the build infrastructure the ami build instructions are available here: 
+[packer-image-build/README.md](https://github.com/vamegh/packer-image-build/blob/master/README.md)
+
+
 
