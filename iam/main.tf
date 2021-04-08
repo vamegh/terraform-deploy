@@ -39,3 +39,13 @@ module "role_jenkins-agent" {
     "AdministratorAccess",
   ]
 }
+
+module "role_web" {
+  source        = "git@github.com:vamegh/terraform-aws-iam-role.git"
+  name          = "web-service"
+  allow_service = "ec2.amazonaws.com"
+
+  policy_file = [
+    "policies/web-s3.json",
+  ]
+}

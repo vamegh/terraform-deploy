@@ -1,0 +1,36 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "WebBucketPermissions",
+            "Effect": "Allow",
+            "Action": [
+              "s3:GetAccountPublicAccessBlock",
+              "s3:GetBucketAcl",
+              "s3:GetBucketLocation",
+              "s3:GetBucketPolicyStatus",
+              "s3:GetBucketPublicAccessBlock"
+            ],
+            "Resource": [
+              "arn:aws:s3:::ev9-web-bucket"
+            ]
+        },
+        {
+            "Sid": "WebObjectPermissions",
+            "Effect": "Allow",
+            "Action": [
+              "s3:GetObject",
+              "s3:GetObjectAcl",
+              "s3:GetObjectTagging",
+              "s3:ListBucket",
+              "s3:ListBucketMultipartUploads",
+              "s3:ListBucketVersions",
+              "s3:ListMultipartUploadParts"
+            ],
+            "Resource": [
+              "arn:aws:s3:::ev9-web-bucket",
+              "arn:aws:s3:::ev9-web-bucket/*"
+            ]
+        }
+    ]
+}
